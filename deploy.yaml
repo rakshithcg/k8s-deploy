@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp
+  name: webapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - image: adhig93/kubernetesjenkins:version1
+        imagePullPolicy: Always
+        name: nodejs
+        ports:
+        - containerPort: 3080
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 3080
+  selector:
+    app: webapp
