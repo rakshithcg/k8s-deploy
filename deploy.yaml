@@ -17,7 +17,7 @@ spec:
       containers:
       - image: adhig93/kubernetesjenkins:version1
         imagePullPolicy: Always
-        name: nodejs
+        name: k8s-ct
         ports:
         - containerPort: 3080
       imagePullSecrets:
