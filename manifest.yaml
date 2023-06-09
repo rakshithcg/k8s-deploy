@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernets-deploy
+spec:
+  replicas: 2
+  selectors:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      name: k8s-pod
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: k8s-ct
+        image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:ver2
+        ports:
+        - containerPort: 8083
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: MYAPP
+  namespace: default
+spec:
+  selector:
+    app: webapp
+  type: ClusterIP
+  ports:
+  - name: MYAPP
+    protocol: TCP
+    port: 80
+    targetPort: 8083
