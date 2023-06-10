@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: Always
         name: k8s-ct
         ports:
-        - containerPort: 3080
+        - containerPort: 3083
       imagePullSecrets:
       - name: regcred
 ---
@@ -30,6 +30,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 3080
+    targetPort: 3083
   selector:
     app: webapp
