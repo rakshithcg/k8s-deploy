@@ -1,6 +1,7 @@
 FROM maven:amazoncorretto AS stage1
 COPY src /usr/src/app/src
 COPY pom.xml /usr/src/app
+EXPOSE 3083
 RUN mvn -f /usr/src/app/pom.xml clean install
 
 FROM openjdk:9
