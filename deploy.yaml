@@ -16,7 +16,7 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:ver8
+      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:latest
         imagePullPolicy: Always
         name: k8s-ct
         ports:
