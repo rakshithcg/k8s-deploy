@@ -38,7 +38,7 @@ pipeline {
         stage('Stage5:Deploy') {
             agent {label 'kubernetes'}
             steps {
-               sh 'kubectl apply -f deploy.yaml'
+               sh 'kubectl apply -f deploy.yaml -n health-check'
             }
         }
     }
