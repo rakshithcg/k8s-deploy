@@ -4,6 +4,7 @@ metadata:
   labels:
     app: webapp
   name: webapp-deployment
+  namespace: health-check
 spec:
   replicas: 1
   selector:
@@ -15,10 +16,10 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:ver6
+      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:latest
         imagePullPolicy: Always
         name: k8s-ct
         ports:
-        - containerPort: 3083
+        - containerPort: 8080
       imagePullSecrets:
       - name: regcred
