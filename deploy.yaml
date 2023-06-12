@@ -5,7 +5,7 @@ metadata:
     app: webapp
   name: webapp-deployment
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: webapp
@@ -15,21 +15,10 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:ver2
+      - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb
         imagePullPolicy: Always
         name: k8s-ct
         ports:
         - containerPort: 3083
       imagePullSecrets:
       - name: regcred
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: webapp-svc
-spec:
-  ports:
-  - port: 80
-    targetPort: 3083
-  selector:
-    app: webapp
