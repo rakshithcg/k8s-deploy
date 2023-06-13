@@ -19,4 +19,4 @@ spec:
         imagePullPolicy: Always
         name: k8s-ct
         ports:
-        - containerPort: 8080
+        - containerPort: 8085
