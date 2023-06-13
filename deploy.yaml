@@ -15,11 +15,11 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: rakshithcg/rakshithg:latest
+      - image: rakshithcg/image:latest
         imagePullPolicy: Always
         name: k8s-crt
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
  ---
  apiVersion: v1
 kind: Service
@@ -28,6 +28,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8000
   selector:
     app: webapp
