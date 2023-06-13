@@ -20,3 +20,5 @@ spec:
         name: k8s-ct
         ports:
         - containerPort: 8080
+        imagePullSecrets:
+        - name: docker-hub
