@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: 581452407825.dkr.ecr.ap-south-1.amazonaws.com/docker-msb:ver1
-        imagePullPolicy: latest
+        imagePullPolicy: Always
         name: k8s-ct
         ports:
         - containerPort: 8080
